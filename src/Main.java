@@ -10,8 +10,9 @@ public class Main {
         Scanner sUserInput = new Scanner(System.in);
 
         // Ask the user to input the top right corner coordinates
-        System.out.print("Enter the top right corner coordinates (x,y): ");
+        System.out.print("Enter the top right corner coordinates (y,x): ");
         String sCoordinates = sUserInput.next();
+        //used to split the given coordinates
         sCoordinates.split(",");
         String[] arrCordinates;
         arrCordinates = sCoordinates.split(",");
@@ -21,20 +22,19 @@ public class Main {
 
         RoverGrid grid = new RoverGrid(iTopRightY + 1, iTopRightX + 1); // Adding 1 to include (0,0)
 
-
+        // added this to allow multiple drones and drone paths
         System.out.print("Enter the number of drones you want to control: ");
         int numDrones = sUserInput.nextInt();
 
         for (int i = 1; i <= numDrones; i++) {
-            System.out.print("Enter starting position for Drone " + i + " (e.g., '0,2'): ");
+            System.out.print("Enter starting position for Drone " + i + " (e.g. '0,2'): ");
             String sStartingPosition = sUserInput.next();
-            System.out.println("Please endter the commands for Drone" + i + "(e.g., 'NNEEWWSSS')");
-            String sCommands = sUserInput.next().toUpperCase();
+            System.out.println("Please enter the commands for Drone" + i + "(e.g. 'NEESSS')");
+            String sCommands = sUserInput.next().toUpperCase(); // using upcase to keep the letters uniform in the char array.
             char[] sCommandArray = sCommands.toCharArray();
 
 
             try {
-                //sStartingPosition = sStartingPosition.replaceAll("[^0-9,]", "");
                 String[] coordinates = sStartingPosition.split(",");
                 int startX = Integer.parseInt(coordinates[0]);
                 int startY = Integer.parseInt(coordinates[1]);

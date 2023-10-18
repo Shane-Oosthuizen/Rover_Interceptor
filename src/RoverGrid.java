@@ -6,7 +6,6 @@ public class RoverGrid {
     private int rows;
     private int columns;
     private char[][] grid;
-    private int iDroneNumber = 0;
 
     private List<String[]> dronePaths = new ArrayList<>();
 
@@ -99,20 +98,20 @@ public class RoverGrid {
             String[] path1 = dronePaths.get(i);
             for (int j = i + 1; j < dronePaths.size(); j++) {
                 String[] path2 = dronePaths.get(j);
-                // Compare the paths for drones i and j
+                // Compare the paths for drones using my array list to find intercept points
                 for (String coordinate1 : path1) {
                     if (coordinate1 != null && Arrays.asList(path2).contains(coordinate1)) {
                         System.out.println("Intersecting points: " + coordinate1);
                         String[] coordinates = coordinate1.split(",");
                         int iCommonX = Integer.parseInt(coordinates[0]);
                         int iCommonY = Integer.parseInt(coordinates[1]);
-                        setCoordinate(iCommonX, iCommonY, '*'); // Set the common coordinates to 'X'
+                        setCoordinate(iCommonX, iCommonY, '*'); // used to set all intersections with a *
                     }
                 }
             }
         }
 
-        // Print the grid with common paths marked as 'X'
+        // Print the grid with the * added for intersections.
         displayRoverGrid();
     }
 
