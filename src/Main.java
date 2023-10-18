@@ -29,7 +29,7 @@ public class Main {
         for (int i = 1; i <= numDrones; i++) {
             System.out.print("Enter starting position for Drone " + i + " (e.g. '0,2'): ");
             String sStartingPosition = sUserInput.next();
-            System.out.println("Please enter the commands for Drone" + i + "(e.g. 'NEESSS')");
+            System.out.println("Please enter the commands for Drone" + i + "(e.g. 'NEESSS'):");
             String sCommands = sUserInput.next().toUpperCase(); // using upcase to keep the letters uniform in the char array.
             char[] sCommandArray = sCommands.toCharArray();
 
